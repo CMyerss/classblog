@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <head><title>Chase's Blog.</title></head>
-    <h1>Chase's Blog:<a href="#Blog 1">1</a><a href="#Blog 2">2</a></h1>
+    <h1>Chase's Blog:<a href="#Blog 1">1</a> <a href="#Blog 2">2</a></h1>
     <body>
-        <h2 id="Blog 1">Blog Post 1: HTML Basics, on <a href="https://www.geeksforgeeks.org/html-basics/">Geeks for Geeks.</a></h2>
+        <h2 id="Blog 1">Blog Post 1: HTML Basics, from <a href="https://www.geeksforgeeks.org/html-basics/">Geeks for Geeks.</a></h2>
+        <h3>September 2, 2021</h3>
         <ul>
             <li><h3>Summary</h3></li>
             <ul>
@@ -40,19 +41,42 @@
             </ul>
         </ul>
 
-        <h2 id="Blog 2">Blog Post 2: <a href="">Enter Link</a></h2>
+        <h2 id="Blog 2">Blog Post 2: 20 Essential CSS Tricks Every Designer Should Know, from <a href="https://www.webdesignerdepot.com/2016/10/20-essential-css-tricks-every-designer-should-know/">webdesignerdepot</a></h2>
+        <h3>September 7, 2021</h3>
         <ul>
             <li><h3>Summary</h3></li>
             <ul>
-                <li><p>P1.
+                <li><p>Today I wanted to take a deep dive into a few CSS tricks. We've started to learn the basics of CSS in class
+                    so I figured taking a swing at some articles that might have some nice tips would be a good way to position myself
+                    to have a great opportunity to succeed. The first part that struck me from this article was when it started talking about
+                    the * character followed by the selector we want. I absolutely love stars in SQL so seeing it here, working relatively the same
+                    way is so cool to me, and I'm glad to have it if I want to influence all characters globally in a document if needed. We also, in class,
+                    started talking about precedence and the 3rd trick it talks about is using "!mportant" I can see this coming in handy at some point. This is 
+                    obviously something we would want to use sparingly as it can really mess up the order in which things should be running and being handled
+                    but for sure will be something I use in a pinch.
                 </p></li>
-                <li><p>P2.
+                <li><p>The topic that I want to talk about involves two points in the articles, the first is number 13 which is the :before selector and the second is 
+                    number 10: Direct Children. These two things absolutely blew my mind and seem to be so handy in styling. For instance, I can see, with children elements
+                    it getting very annoying to have to constantly go back and restyle every child element when you want it to look the same as a parent element, and having 
+                    the ability to just make inheritance happen is so useful. The before selector is also very cool because we have the ability to slot whatever it may be before
+                    a certain type of tag is used. This can be key, if for instance, you want to emphasize something important about an element or just want some unity between the 
+                    beginnings of elements! lets take a look below at a few coding examples.
                 </p></li>
             </ul>
             <li><h3>Sample Code</h3></li>
             <ul>
                 <li><p>
-                    Start of Sample Code.
+                    Here is example code of the before tag being used to add the word "Read:" before every h2 tag and giving
+                    it the color red.
+                    <pre>h2:before { 
+                        content: "Read: ";
+                &lt;span class="Apple-converted-space"&gt;    color: #F00;&lt;/span&gt;
+                    }</pre>
+                </p></li>
+                <li><p>
+                    Here is example code of the direct children tag being used that will apply and style all 
+                    active link elements under the footer tag.
+                    <pre>#footer > a</pre>
                 </p></li>
             </ul>
         </ul>
