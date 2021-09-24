@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <head><title>Chase's Blog.</title></head>
-    <h1>Chase's Blog:<a href="#Blog 1">1</a> <a href="#Blog 2">2</a> <a href="#Blog 3">3</a></h1>
+    <h1>Chase's Blog:<a href="#Blog 1">1</a> <a href="#Blog 2">2</a> <a href="#Blog 3">3</a> <a href="#Blog 4">4</a></h1>
     <body>
         <h2 id="Blog 1">Blog Post 1: HTML Basics, from <a href="https://www.geeksforgeeks.org/html-basics/">Geeks for Geeks.</a></h2>
         <h3>September 2, 2021</h3>
@@ -127,8 +127,190 @@
                 </p></li>
             </ul>
         </ul>
-    </body>
-<body>
 
-</body>
+        <h2 id="Blog 4">Blog Post 4: CSS Animation, from <a href="https://www.mockplus.com/blog/post/css-animation-examples"> Mockplus.</a></h2>
+        <h3>September 24, 2021</h3>
+        <ul>
+            <li><h3>Summary</h3></li>
+            <ul>
+                <li><p> One of the requirements for the upcoming P1 is that we need to do some sort of animation using CSS or javascript. Being we have not used JavaScript yet, I wanted to see what animations can be done 
+                    with using soley CSS! After, scavengering around the universe of the internet I came across this article and I want to discuss and look at some of the code I found pertaining to animations. First, I do want to
+                    say that using animations can be very tacky with a very early understanding with code, so I am very happy to have found this because any animation I could have thought of doing would look a thousand times worse. 
+                    It is also a little difficult for me to think of an animation to use, being my use-case for the project doesn't really have anything that I can imagine using in an animation? I orignially thought that it might be
+                    cute to make a little firetruck drive across the page, and it may be something that I attempt to do, but it will take a good amount of time to figure out. Luckily, with this page, I have drawn a little bit of inspiration
+                    and might start out with something much simpler.
+                </p></li>
+                <li><p> The code example I want to show today is an image accordian. I believe that this could be very useful, and surely interesting. With the fire department, an easy way to help people understand what you do is through photos! 
+                    My thought process here would be that I could make this accordian with photos I accrue from our Facebook and use them in a way like this is to where someone can "play the accordian," or more realistically what they are doing,
+                    click through the photos that appear in a very clean and organized design that makes it feel very interactive. I was thinking as well is I could put a link someone on the accordian as well with each of the images and attach them
+                    to some page that will give a little explination to the image and what is going on so that they feel a little more relatable and as if the reader has the ability to "step-into" the photo.
+                </p></li>
+            </ul>
+            <li><h3>Sample Code</h3></li>
+            <ul>
+                <li><p>
+                    <pre>
+                        .ia-container {
+                            width: 685px;
+                            margin: 20px auto;
+                            overflow: hidden;
+                            box-shadow: 1px 1px 4px rgba(0,0,0,0.08);
+                            border: 7px solid rgba(255,255,255,0.6);
+                        }
+
+                        .ia-container figure {
+                            position: absolute;
+                            top: 0;
+                            left: 50px; /* width of visible piece */
+                            width: 335px;
+                            box-shadow: 0 0 0 1px rgba(255,255,255,0.6);
+                            transition: all 0.3s ease-in-out;
+                        }
+
+                        .ia-container > figure {
+                            position: relative;
+                            left: 0 !important;
+                        }
+
+                        .ia-container img {
+                            display: block;
+                            width: 100%;
+                        }
+
+                        .ia-container input {
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            width: 50px; /* just cover visible part */
+                            height: 100%;
+                            cursor: pointer;
+                            border: 0;
+                            padding: 0;
+                            opacity: 0;
+                            z-index: 100;
+                            -webkit-appearance: none;
+                            -moz-appearance: none;
+                            appearance: none;
+                        }
+
+                        .ia-container input:checked{
+                            width: 5px;
+                            left: auto;
+                            right: 0px;
+                        }
+                        .ia-container input:checked ~ figure {
+                            left: 335px;
+                            transition: all 0.7s ease-in-out;
+                        }
+
+                        .ia-container figcaption {
+                            width: 100%;
+                            height: 100%;
+                            background: rgba(87, 73, 81, 0.1);
+                            position: absolute;
+                            top: 0px;
+                            transition: all 0.2s linear;
+                        }
+                        
+                        .ia-container figcaption span {
+                            position: absolute;
+                            top: 40%;
+                            margin-top: -30px;
+                            right: 20px;
+                            left: 20px;
+                            overflow: hidden;
+                            text-align: center;
+                            background: rgba(87, 73, 81, 0.3);
+                            line-height: 20px;
+                            font-size: 18px;
+                            opacity: 0;
+                            text-transform: uppercase;
+                            letter-spacing: 4px;
+                            font-weight: 700;
+                            padding: 20px;
+                            color: #fff;
+                            text-shadow: 1px 1px 1px rgba(0,0,0,0.1);
+                        } 
+
+                        .ia-container input:checked + figcaption,
+                        .ia-container input:checked:hover + figcaption{
+	                        background: rgba(87, 73, 81, 0);
+                        }
+
+                        .ia-container input:checked + figcaption span {
+                            transition: all 0.4s ease-in-out 0.5s;
+                            opacity: 1;
+                            top: 50%;
+                        }
+
+                        .ia-container #ia-selector-last:checked + figcaption span {
+                            transition-delay: 0.3s;
+                        }
+
+                        .ia-container input:hover + figcaption {
+                            background: rgba(87, 73, 81, 0.03);
+                        }
+
+                        .ia-container input:checked ~ figure input{
+                            z-index: 1;
+                        }
+
+                        @media screen and (max-width: 720px) {
+                            .ia-container { 
+                                width: 540px; 
+                            }
+                            
+                            .ia-container figure { 
+                                left: 40px; 
+                                width: 260px; 
+                            }
+                            
+                            .ia-container input { 
+                                width: 40px; 
+                            }
+                            
+                            .ia-container input:checked ~ figure { 
+                                left: 260px; 
+                            }
+                            
+                            .ia-container figcaption span { 
+                                font-size: 16px; 
+                            }
+                        }
+                        
+                        @media screen and (max-width: 520px) {
+                            .ia-container { 
+                                width: 320px; 
+                            }
+                            
+                            .ia-container figure { 
+                                left: 20px; 
+                                width: 180px; 
+                            }
+                            
+                            .ia-container input { 
+                                width: 20px; 
+                            }
+                            
+                            .ia-container input:checked ~ figure { 
+                                left: 180px; 
+                            }
+                            
+                            .ia-container figcaption span { 
+                                font-size: 12px; 
+                                letter-spacing: 2px; 
+                                padding: 10px; 
+                                margin-top: -20px; 
+                            } 
+                        
+                        }
+                    </pre>
+                </p></li>
+                <li><p>
+                    This produces something that looks like this!
+                    <img src="accordian.png" alt="Accordian picture.">
+                </p></li>
+            </ul>
+        </ul>
+    </body>
 </html>
